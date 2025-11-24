@@ -89,16 +89,15 @@ The script will open images one by one and pause. For **EACH** image:
 Copy the code below and save it as **`AlgaeCounter.ijm`**. To install in ImageJ: `Plugins` > `New` > `Macro`, paste code, and `Save`.
 
 AlgaeCounter.ijm
-{
-/*
- * SOP SCRIPT: AUTOMATED ALGAE COUNTER (Variable Replicates)
- * Lab Protocol: 11/2025
- * * PARAMETERS:
- * - Crop Size: 512x512 (Calculated for 10X Binning 3)
- * - Min Size: 50 pixels (Filters dust <14px)
- * - Threshold: Triangle (Optimized for dim fluorescence)
- */
 
+/*
+* SOP SCRIPT: AUTOMATED ALGAE COUNTER (Variable Replicates)
+* Lab Protocol: 11/2025
+* * PARAMETERS:
+* - Crop Size: 512x512 (Calculated for 10X Binning 3)
+* - Min Size: 50 pixels (Filters dust <14px)
+* - Threshold: Triangle (Optimized for dim fluorescence)
+*/
 macro "SOP Algae Variable [F2]" {
     // --- CONFIGURATION ---
     minSize = 50;          
@@ -107,7 +106,7 @@ macro "SOP Algae Variable [F2]" {
     
     // --- SETUP ---
     run("Close All");
-    print("\\Clear");
+    print("\Clear");
     roiManager("Reset");
     
     // Folder Selection
@@ -159,7 +158,6 @@ macro "SOP Algae Variable [F2]" {
                 run("Set...", "value=0"); // Paint black
                 run("Select None");
             }
-
             // 5. Analysis
             run("Duplicate...", "title=Detection_Mask");
             run("8-bit");
@@ -210,5 +208,4 @@ function printRow(sample, cArr) {
         line = line + "\t" + cArr[k];
     }
     print(line);
-}
 }
