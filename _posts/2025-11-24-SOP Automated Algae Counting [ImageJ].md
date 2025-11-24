@@ -91,6 +91,6 @@ To ensure the ImageJ macro runs correctly, the entire script is provided as a do
 * **File Name:** `AlgaeCounter.ijm`
 * **Installation:** In ImageJ/Fiji, go to `Plugins` > `Macros` > `Run...` and select the downloaded file.
 
-[**⬇️ View/Download the ImageJ Macro File (.ijm)**](_.ijm/AlgaeCounter.ijm)
+[**⬇️ View/Download the ImageJ Macro File (.ijm)**](https://raw.githubusercontent.com/LielUziahu/L.Uziahu_Lab_Notebook-Mass_Lab/refs/heads/master/_.ijm/AlgaeCounter.ijm)
 
 ---
