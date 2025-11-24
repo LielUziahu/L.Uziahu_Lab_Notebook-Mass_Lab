@@ -1,93 +1,92 @@
-# [cite_start]🔬 SOP: Automated Algae Counting (ImageJ) [cite: 1]
+# 🔬 SOP: Automated Algae Counting (ImageJ)
 
 | Field | Detail |
 | :--- | :--- |
-| **Date** | [cite_start]November 21, 2025 [cite: 2] |
-| **Scope** | [cite_start]Fluorescence Microscopy & Hemocytometer Analysis [cite: 3] |
+| **Date** | November 21, 2025 |
+| **Scope** | Fluorescence Microscopy & Hemocytometer Analysis |
 
 ---
 
 ## 1. Purpose
 
-[cite_start]To automate the counting of algal cells (e.g., *Symbiodiniaceae*, Phytoplankton) from fluorescence microscope images[cite: 5].
+To automate the counting of algal cells (e.g., *Symbiodiniaceae*, Phytoplankton) from fluorescence microscope images.
 
 This protocol uses a custom ImageJ macro to:
-* [cite_start]**Standardize the Count Area:** Automatically crops the image to the exact volume of the Hemocytometer Central Square (0.1 µL)[cite: 7].
-* [cite_start]**Remove Bias:** Uses mathematical thresholding ("Triangle") rather than human eye estimation[cite: 8].
-* [cite_start]**Handle Variable Replicates:** Automatically adjusts to any number of photos per sample[cite: 9].
+* **Standardize the Count Area:** Automatically crops the image to the exact volume of the Hemocytometer Central Square (0.1 µL).
+* **Remove Bias:** Uses mathematical thresholding ("Triangle") rather than human eye estimation.
+* **Handle Variable Replicates:** Automatically adjusts to any number of photos per sample.
 
 ---
 
 ## 2. Phase 0: Imaging Protocol (Critical)
 
-[cite_start]To ensure the automated script calculates volume correctly, all images **must** be taken using these exact settings[cite: 11].
+To ensure the automated script calculates volume correctly, all images **must** be taken using these exact settings.
 
 | Setting | Requirement |
 | :--- | :--- |
-| **Magnification** | [cite_start]10X Objective (Total Mag: 100X)[cite: 12]. |
-| **Warning** | [cite_start]Do not use 20X or 40X for counting[cite: 13]. |
-| **Fluorescence Channel** | [cite_start]Use the **Chlorophyll / Red** channel (Excitation: ~450-480nm, Emission: >600nm)[cite: 20]. |
-| **Exposure** | [cite_start]Adjust so cells are bright but **not** saturated[cite: 21]. [cite_start]Background should be dark[cite: 21]. |
+| **Magnification** | 10X Objective (Total Mag: 100X). Do not use 20X or 40X for counting. |
+| **Fluorescence Channel** | Use the **Chlorophyll / Red** channel (Excitation: ~450-480nm, Emission: >600nm). |
+| **Exposure** | Adjust so cells are bright but **not** saturated. Background should be dark. |
 
 ### Camera Settings (Binning)
-* [cite_start]**Hemocytometer (Brightfield):** Full Resolution (Binning 1x1)[cite: 15]. [cite_start]Expected Size: ~1600 x 1600 pixels[cite: 16].
-* [cite_start]**Algae (Fluorescence):** High Sensitivity (Binning 3x3)[cite: 17]. [cite_start]Expected Size: ~536 x 536 pixels[cite: 18].
-    > [cite_start]**Note:** If you change the binning, you must update the `boxSize` in the script[cite: 19].
+* **Hemocytometer (Brightfield):** Full Resolution (Binning 1x1). Expected Size: ~1600 x 1600 pixels.
+* **Algae (Fluorescence):** High Sensitivity (Binning 3x3). Expected Size: ~536 x 536 pixels.
+    > **Note:** If you change the binning, you must update the `boxSize` in the script.
 
 ---
 
-## [cite_start]3. The Logic: Why It Works [cite: 22]
+## 3. The Logic: Why It Works
 
-[cite_start]Before running the script, understanding the core parameters is critical[cite: 23].
+Before running the script, understanding the core parameters is critical.
 
 | Parameter | Setting/Value | Rationale |
 | :--- | :--- | :--- |
-| **The "Cut" (Volume)** | [cite_start]512x512 box [cite: 28] | [cite_start]The script creates a 512x512 box[cite: 28]. [cite_start]Anything inside represents exactly **0.1 µL** of sample[cite: 28]. (Derived from Standard Neubauer Central Square = 1mm x 1mm, Calibrated Brightfield Width = 1535 px, Fluorescence Width / 3 = 512 px) [cite_start][cite: 25, 26, 27]. |
-| **The Threshold (Detection)** | [cite_start]**"Triangle"** Method [cite: 30] | [cite_start]This is optimized for "dim" cells and ignores background static better than the standard "Otsu" method[cite: 30]. |
-| **The Size Filter (Noise)** | [cite_start]**> 50 pixels** [cite: 32] | [cite_start]This removes dust (typically ~14px) while keeping small algae (~240px)[cite: 32]. |
+| **The "Cut" (Volume)** | 512x512 box | Anything inside represents exactly **0.1 µL** of sample. (Derived from Standard Neubauer Central Square = 1mm x 1mm, Calibrated Brightfield Width = 1535 px, Fluorescence Width / 3 = 512 px). |
+| **The Threshold (Detection)** | **"Triangle"** Method | This is optimized for "dim" cells and ignores background static better than the standard "Otsu" method. |
+| **The Size Filter (Noise)** | **> 50 pixels** | This removes dust (typically ~14px) while keeping small algae (~240px). |
 
 ---
 
-## [cite_start]4. Procedure [cite: 33]
+## 4. Procedure
 
-### [cite_start]Phase 1: Preparation [cite: 34]
-1.  [cite_start]**Organize Files:** Place all your .tif, .jpg, or .png images into a single **Input Folder**[cite: 35].
-2.  **Naming Convention:** SampleID\_Replicate.tif (e.g., `401_1.tif`, `401_2.tif`). [cite_start]The script groups replicates automatically[cite: 36].
-3.  [cite_start]**Create Output Folder:** Create an empty folder named "Results" or "Counted\_Images"[cite: 37].
+### Phase 1: Preparation
+1.  **Organize Files:** Place all your .tif, .jpg, or .png images into a single **Input Folder**.
+2.  **Naming Convention:** SampleID\_Replicate.tif (e.g., `401_1.tif`, `401_2.tif`). The script groups replicates automatically.
+3.  **Create Output Folder:** Create an empty folder named "Results" or "Counted\_Images".
 
-### [cite_start]Phase 2: Running the Script [cite: 38]
-1.  [cite_start]Open **Fiji / ImageJ**[cite: 39].
-2.  [cite_start]Drag the script file (`AlgaeCounter.ijm`) into the Fiji bar (or go to `Plugins` > `Macros` > `Run`)[cite: 40].
-3.  [cite_start]**Select Input Folder:** Choose the folder with your images[cite: 41].
-4.  [cite_start]**Select Output Folder:** Choose your results folder[cite: 42].
+### Phase 2: Running the Script
+1.  Open **Fiji / ImageJ**.
+2.  Drag the script file (`AlgaeCounter.ijm`) into the Fiji bar (or go to `Plugins` > `Macros` > `Run`).
+3.  **Select Input Folder:** Choose the folder with your images.
+4.  **Select Output Folder:** Choose your results folder.
 
-### [cite_start]Phase 3: The "Eraser" Step (Interactive) [cite: 43]
-[cite_start]The script will open images one by one and pause[cite: 44, 45]. For **EACH** image:
-1.  [cite_start]Look for the **Scale Bar** (or any large debris clumps)[cite: 46].
-2.  [cite_start]Use the mouse to **Draw a Box** over the text/scale bar[cite: 47].
-3.  [cite_start]Click **OK** on the prompt window[cite: 48].
-4.  [cite_start]The script will paint the box black (ignoring it), count the algae, and move to the next image[cite: 49].
+### Phase 3: The "Eraser" Step (Interactive)
+The script will open images one by one and pause. For **EACH** image:
+1.  Look for the **Scale Bar** (or any large debris clumps).
+2.  Use the mouse to **Draw a Box** over the text/scale bar.
+3.  Click **OK** on the prompt window.
+4.  The script will paint the box black (ignoring it), count the algae, and move to the next image.
 
-### [cite_start]Phase 4: Results & Quality Control [cite: 50]
+### Phase 4: Results & Quality Control
 
-#### [cite_start]Extracting Data to Excel [cite: 51]
-1.  [cite_start]When finished, a window named **"Log"** will appear[cite: 52].
-2.  [cite_start]Click inside the **"Log"** window[cite: 53].
-3.  [cite_start]Press `Ctrl + A` (Select All) then `Ctrl + C` (Copy)[cite: 54].
-4.  [cite_start]Paste into Excel[cite: 55].
-5.  [cite_start]**Column Layout:** Sample Name -> Concentration -> Average -> Count 1 -> Count 2...[cite: 56].
-    > [cite_start]**Note:** Column B is always the Final Result[cite: 57].
+#### Extracting Data to Excel
+1.  When finished, a window named **"Log"** will appear.
+2.  Click inside the **"Log"** window.
+3.  Press `Ctrl + A` (Select All) then `Ctrl + C` (Copy).
+4.  Paste into Excel.
+5.  **Column Layout:** Sample Name -> Concentration -> Average -> Count 1 -> Count 2....
+    > **Note:** Column B is always the Final Result.
 
-#### [cite_start]Visual Verification [cite: 58]
-1.  [cite_start]Open the output folder and check images named `Checked_....`[cite: 59].
-2.  [cite_start]**Cyan Numbers** indicate valid cells[cite: 60].
-3.  [cite_start]Verify that the scale bar is gone and faint cells are numbered[cite: 61].
+#### Visual Verification
+1.  Open the output folder and check images named `Checked_....`.
+2.  **Cyan Numbers** indicate valid cells.
+3.  Verify that the scale bar is gone and faint cells are numbered.
 
 ---
 
-## [cite_start]5. The Script Code [cite: 62]
+## 5. The Script Code
 
-Copy the code below and save it as **`AlgaeCounter.ijm`**. [cite_start]To install in ImageJ: `Plugins` > `New` > `Macro`, paste code, and `Save`[cite: 63].
+Copy the code below and save it as **`AlgaeCounter.ijm`**. To install in ImageJ: `Plugins` > `New` > `Macro`, paste code, and `Save`.
 
 ```ijm
 /*
