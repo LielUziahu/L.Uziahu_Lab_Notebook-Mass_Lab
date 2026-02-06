@@ -1,10 +1,9 @@
 ---
 layout: post
+title: "SOP: Standardized Algae Counting Protocol"
 category: [Lab Protocol, Image Analysis]
 tags: [ImageJ, Fiji, Corals, Symbionts, Algae Counting]
 ---
-
-# SOP: Standardized Algae Counting Protocol 
 
 This protocol outlines the end-to-end workflow for quantifying symbiont density, from microscope settings to automated image analysis using ImageJ/Fiji.
 
