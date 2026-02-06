@@ -1,23 +1,18 @@
-| Field | Detail |
-| :--- | :--- |
-| **Date** | November 21, 2025 |
-| **Scope** | Fluorescence Microscopy & Hemocytometer Analysis |
-
+---
+layout: post
+title: "SOP: Standardized Algae Counting & Imaging Protocol"
+category: [Lab Protocol, Image Analysis]
+tags: [ImageJ, Fiji, Corals, Symbionts, Algae Counting]
 ---
 
-## 1. Purpose
+# SOP: Standardized Algae Counting Protocol (2026)
 
-To automate the counting of algal cells (e.g., *Symbiodiniaceae*, Phytoplankton) from fluorescence microscope images.
+This protocol outlines the end-to-end workflow for quantifying symbiont density, from microscope settings to automated image analysis using ImageJ/Fiji.
 
-This protocol uses a custom ImageJ macro to:
-* **Standardize the Count Area:** Automatically crops the image to the exact volume of the Hemocytometer Central Square (0.1 µL).
-* **Remove Bias:** Uses mathematical thresholding ("Triangle") rather than human eye estimation.
-* **Handle Variable Replicates:** Automatically adjusts to any number of photos per sample.
-
----
+## 1. Information and Purpose
+The goal of this protocol is to standardize the calculation of algae cell concentrations (cells/mL) across different coral research projects. By using a specific "Middle Big Square" crop logic, we ensure that the area analyzed always represents a known, fixed volume of the hemocytometer (0.1 µL), regardless of the camera's full field of view.
 
 ## 2. Phase 0: Imaging Protocol (Critical)
-
 To ensure the automated script calculates volume correctly, all images **must** be taken using these exact settings.
 
 | Setting | Requirement |
@@ -29,66 +24,79 @@ To ensure the automated script calculates volume correctly, all images **must** 
 ### Camera Settings (Binning)
 * **Hemocytometer (Brightfield):** Full Resolution (Binning 1x1). Expected Size: ~1600 x 1600 pixels.
 * **Algae (Fluorescence):** High Sensitivity (Binning 3x3). Expected Size: ~536 x 536 pixels.
-    > **Note:** If you change the binning, you must update the `boxSize` in the script.
+    > **Note:** If you change the binning, you must update the `boxSize` in the script (e.g., 512 for 3x3 binning, 1360 for 1x1).
 
 ---
 
-## 3. The Logic: Why It Works
+## 3. Mandatory File Naming Convention
+The script uses **String Parsing** to group replicates and calculate averages. If the naming is wrong, the CSV output will be incorrect.
 
-Before running the script, understanding the core parameters is critical.
+**The Rule:** `SampleID_ReplicateNumber.extension`
+
+* **The Underscore (`_`) is the Divider:** The script reads everything *before* the first underscore as the Sample Name.
+* **Replicate Number:** Everything *after* the underscore identifies the specific image.
+* **Example of Correct Naming:**
+    * `S1_01.nd2`, `S1_02.nd2`, `S1_03.nd2` → Result: One row for "S1" with an average of 3 counts.
+    * `Coral-Alpha_01.tif`, `Coral-Alpha_02.tif` → Result: One row for "Coral-Alpha".
+
+---
+
+## 4. The Logic: Why It Works
+The script relies on a precise spatial calibration to convert "pixels" into "volume".
 
 | Parameter | Setting/Value | Rationale |
 | :--- | :--- | :--- |
-| **The "Cut" (Volume)** | 512x512 box | Anything inside represents exactly **0.1 µL** of sample. (Derived from Standard Neubauer Central Square = 1mm x 1mm, Calibrated Brightfield Width = 1535 px, Fluorescence Width / 3 = 512 px). |
-| **The Threshold (Detection)** | **"Triangle"** Method | This is optimized for "dim" cells and ignores background static better than the standard "Otsu" method. |
-| **The Size Filter (Noise)** | **> 50 pixels** | This removes dust (typically ~14px) while keeping small algae (~240px). |
+| **The "Cut" (Volume)** | 512x512 box | Represents exactly **0.1 µL**. Based on Standard Neubauer Central Square = 1mm x 1mm. |
+| **The Threshold** | **"Triangle"** Method | Optimized for "dim" cells; ignores background static better than standard "Otsu". |
+| **The Size Filter** | **> 50 pixels** | Removes small dust/noise (~14px) while keeping small algae (~240px). |
+| **Watershed** | Active | Automatically cuts lines between cells that are touching to count them as two objects. |
 
 ---
 
-## 4. Procedure
+## 5. Running the Scripts
 
-### Phase 1: Preparation
-1.  **Organize Files:** Place all your .tif, .jpg, or .png images into a single **Input Folder**.
-2.  **Naming Convention:** SampleID\_Replicate.tif (e.g., `401_1.tif`, `401_2.tif`). The script groups replicates automatically.
-3.  **Create Output Folder:** Create an empty folder named "Results" or "Counted\_Images".
+### A. Universal Automated Counter (F4)
+*Best for high-throughput analysis of clean images (no scale bars).*
 
-### Phase 2: Running the Script
-1.  Open **Fiji / ImageJ**.
-2.  Drag the script file (`AlgaeCounter.ijm`) into the Fiji bar (or go to `Plugins` > `Macros` > `Run`).
-3.  **Select Input Folder:** Choose the folder with your images.
-4.  **Select Output Folder:** Choose your results folder.
+* **File Name:** `Auto_Algae_Counter.ijm`
+[**⬇️ View/Download the ImageJ Macro File (.ijm)**](https://github.com/LielUziahu/L.Uziahu_Lab_Notebook-Mass_Lab/blob/master/_scripts/ImageJ_scripts/Auto_Algae_Counter.ijm)
+* **Installation:** In ImageJ/Fiji, go to `Plugins` > `Macros` > `Run...` and select the downloaded file.
 
-### Phase 3: The "Eraser" Step (Interactive)
-The script will open images one by one and pause. For **EACH** image:
-1.  Look for the **Scale Bar** (or any large debris clumps).
-2.  Use the mouse to **Draw a Box** over the text/scale bar.
-3.  Click **OK** on the prompt window.
-4.  The script will paint the box black (ignoring it), count the algae, and move to the next image.
+1.  **Launch:** Open ImageJ and press **F4**.
+2.  **Select Folders:** Choose your **Input** (raw images) and **Output** (where CSV/JPEGs go).
+3.  **Process:** The script runs in **Batch Mode**. You won't see the images opening; wait for the "Success" message.
 
-### Phase 4: Results & Quality Control
+### B. Scale Bar Eraser Script (F2)
+*Use if your images contain a scale bar, date stamp, or any text burned into the image.*
 
-#### Extracting Data to Excel
-1.  When finished, a window named **"Log"** will appear.
-2.  Click inside the **"Log"** window.
-3.  Press `Ctrl + A` (Select All) then `Ctrl + C` (Copy).
-4.  Paste into Excel.
-5.  **Column Layout:** Sample Name -> Concentration -> Average -> Count 1 -> Count 2....
-    > **Note:** Column B is always the Final Result.
+* **File Name:** `Auto_Algae_Counter_with_Scalebar.ijm`
+[**⬇️ View/Download the ImageJ Macro File (.ijm)**](https://github.com/LielUziahu/L.Uziahu_Lab_Notebook-Mass_Lab/blob/master/_scripts/ImageJ_scripts/Auto_Algae_Counter_with_Scalebar.ijm)
+* **Installation:** In ImageJ/Fiji, go to `Plugins` > `Macros` > `Run...` and select the downloaded file.
 
-#### Visual Verification
-1.  Open the output folder and check images named `Checked_....`.
-2.  **Cyan Numbers** indicate valid cells.
-3.  Verify that the scale bar is gone and faint cells are numbered.
+
+1.  **Launch:** Press **F2**.
+2.  **Manual Step:** The script will open each image and **beep**.
+3.  **Eraser Action:**
+    * Use the **Rectangle tool** (it selects automatically) to draw a box over the scale bar.
+    * Click **OK** in the "waitForUser" box.
+4.  **Result:** The script paints that area black (value = 0) so the software ignores it during the count.
 
 ---
+
+## 6. Final Output & Verification
+
+### The CSV Results (`Algae_Results_...csv`)
+* **Conc (Cells/mL):** The final concentration calculated as: $Average \times 10,000$.
+* **Average:** The mean count of all replicates for that Sample ID.
+* **Counts:** Raw data for every individual image to allow for outlier detection.
+
+### "Checked" Evidence Images
+Every image is saved as a `.jpg` with **Cyan Outlines** around detected cells.
+> [!WARNING]
+> **Check the JPEGs!** If you see a large cyan box around your scale bar, you forgot to use the Eraser script, and your concentration data is incorrect.
 
 ## 5. The Script Code (Downloadable)
 
 To ensure the ImageJ macro runs correctly, the entire script is provided as a downloadable file. This prevents errors from broken line breaks during copy-paste.
-
-* **File Name:** `AlgaeCounter.ijm`
-* **Installation:** In ImageJ/Fiji, go to `Plugins` > `Macros` > `Run...` and select the downloaded file.
-
-[**⬇️ View/Download the ImageJ Macro File (.ijm)**](https://raw.githubusercontent.com/LielUziahu/L.Uziahu_Lab_Notebook-Mass_Lab/refs/heads/master/_.ijm/AlgaeCounter.ijm)
 
 ---
