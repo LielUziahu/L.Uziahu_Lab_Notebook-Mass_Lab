@@ -6,6 +6,7 @@ tags: [ImageJ, Fiji, Corals, Symbionts, Algae Counting]
 ---
 
 This protocol outlines the end-to-end workflow for quantifying symbiont density, from microscope settings to automated image analysis using ImageJ/Fiji.
+**Version:** Feb 6, 2026****
 
 ## 1. Information and Purpose
 The goal of this protocol is to standardize the calculation of algae cell concentrations (cells/mL) across different coral research projects. By using a specific "Middle Big Square" crop logic, we ensure that the area analyzed always represents a known, fixed volume of the hemocytometer (0.1 µL), regardless of the camera's full field of view.
