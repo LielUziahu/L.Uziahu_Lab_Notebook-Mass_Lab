@@ -5,9 +5,6 @@ category: [Code, AI, Protocol, Plottin ]
 tags: [ Code, Planulae, AI tool, Plotting, Statistical Analysis ]
 ---
 
-
-
-# Google Colab Standard Operating Procedure
 _LAB PROTOCOL — a practical guide for lab members using Google Colab (Python or R)._  
 **Version:** Feb 3, 2026
 
