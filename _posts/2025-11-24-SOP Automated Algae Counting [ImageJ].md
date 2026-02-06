@@ -1,5 +1,3 @@
-# 🔬 SOP: Automated Algae Counting (ImageJ)
-
 | Field | Detail |
 | :--- | :--- |
 | **Date** | November 21, 2025 |
