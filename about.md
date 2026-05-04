@@ -7,25 +7,6 @@ permalink: /about/
 
 ---
 
-# About
-
-
-
-I am a PhD candidate in the [**Coral Biomineralization and Physiology Lab**](https://cbp-lab.marsci.haifa.ac.il/) of [Prof. Tali Mass](https://cris.haifa.ac.il/en/persons/tali-mass/) at the University of Haifa, Israel. My work bridges the gap between molecular biology and marine ecology to understand the survival strategies of corals in a changing climate.
-
-
-My research investigates how the reef-building coral *Stylophora pistillata* utilizes **parental bet-hedging** to navigate an increasingly unpredictable ocean. I study how parent colonies produce offspring with diverse "molecular survival kits"—visible through distinct fluorescent protein morphs. By tracking these larvae from their lunar-synchronized release to their final settlement as spats, I aim to decode the genetic and physiological architecture that ensures at least a portion of the population can survive varied environmental stressors.
-
-
-Beyond my doctoral research, I serve as the **Lab Manager** and **Head of Mariculture Systems** at the *Center of Marine Education, Research, and Mariculture* located in the Mevo'ot-Yam Youth Village in Michmoret, Israel. 
-
-In this dual role, I oversee:
-* **System Engineering:** Designing and maintaining complex Life Support Systems (LSS) and Recirculating Aquaculture Systems (RAS).
-* **Live Feed & Algal Production:** Managing large-scale cultivation of microalgae, macroalgae, and planktonic organisms (Rotifers, Copepods, Artemia).
-* **Marine Education:** Integrating technical mariculture expertise with educational outreach for the next generation of marine scientists.
-
-By combining high-level physiological research with hands-on system management, I work to develop sustainable methods for coral farming and restoration.
-
 
 # About
 
