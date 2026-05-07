@@ -5,9 +5,11 @@ date: 2026-05-07
 categories: protocols physiology
 ---
 
-# Protocol: Physiological Quantification of *S. pistillata* Larvae and Spats
+Protocol: Physiological Quantification of *S. pistillata* Larvae and Spats
 
 This protocol describes the multi-step processing of individual or pooled planulae and spats to quantify total protein content, chlorophyll *a* concentration, and algal symbiont density.
+
+**Version:** May 7, 2026
 
 ## 1. Sample Preparation and Homogenization
 To ensure all physiological metrics are captured from the same biological material, samples must be homogenized thoroughly.
