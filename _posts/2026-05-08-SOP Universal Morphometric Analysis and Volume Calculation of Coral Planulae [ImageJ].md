@@ -4,7 +4,13 @@ title: "SOP: Universal Morphometric Analysis and Volume Calculation of Coral Pla
 date: 2026-05-07
 categories: morphometrics
 ---
-# SOP: Universal Morphometric Analysis and Volume Calculation of Coral Planulae.
+ 
+**Equipment:** Fiji (ImageJ)  
+**Model:** Spherocylinder (Capsule) Geometric Model  
+**Version:** May 7, 2026
+
+
+### SOP: Universal Morphometric Analysis and Volume Calculation of Coral Planulae.
 **Equipment:** Fiji (ImageJ)  
 **Model:** Spherocylinder (Capsule) Geometric Model  
 **Version:** May 7, 2026
