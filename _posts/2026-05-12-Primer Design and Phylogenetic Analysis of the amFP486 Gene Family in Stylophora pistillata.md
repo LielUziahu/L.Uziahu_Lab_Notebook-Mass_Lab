@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Primer Design and Phylogenetic Analysis of the amFP486 Gene Family in *Stylophora pistillata*"
+title: "Primer Design and Phylogenetic Analysis of the amFP486 Gene Family in Stylophora pistillata"
 date: 2026-05-12
 ---
 
