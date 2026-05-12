@@ -1,4 +1,10 @@
-## Primer Design and Phylogenetic Analysis of the amFP486 Gene Family in *Stylophora pistillata*
+---
+layout: post
+title: "Primer Design and Phylogenetic Analysis of the amFP486 Gene Family in *Stylophora pistillata*"
+date: 2026-05-12
+---
+
+# Primer Design and Phylogenetic Analysis of the amFP486 Gene Family in *Stylophora pistillata*
 
 ## 1. Project Objective and Introduction
 **Target Organism:** *Stylophora pistillata* (Lace Coral).  
