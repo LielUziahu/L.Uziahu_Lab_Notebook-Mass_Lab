@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Protocol: Integrated Physiological Analysis (Protein, Chl a, and Symbiont Density)"
-date: 2026-05-07
+date: 2026-05-30
 categories: protocols physiology
 ---
 
@@ -27,7 +27,7 @@ To ensure all physiological metrics are captured from the same biological materi
 *Utilizing the Cyanagen µQPRO – BCA kit.*
 
 1.  **Centrifugation:** Spin the protein aliquot at 5,000 rpm for 5 minutes at 4°C.
-2.  **Standards:** Prepare BSA calibration standards (range: 0–2000 µg/mL).
+2.  **Standards:** Prepare BSA calibration standards (range: 0–200 µg/mL).
 3.  **Working Reagent (WR):** Mix Reagent A and Reagent B in a 25:24 ratio, then add 1 part Reagent C.
 4.  **Loading:** Aliquot 50 µL of sample (diluted if necessary) and 150 µL of WR into a 96-well plate.
 5.  **Incubation:** Incubate at 37°C for 120 minutes.
