@@ -29,8 +29,8 @@ To ensure all physiological metrics are captured from the same biological materi
 1.  **Centrifugation:** Spin the protein aliquot at 5,000 rpm for 5 minutes at 4°C.
 2.  **Standards:** Prepare BSA calibration standards (range: 0–2000 µg/mL).
 3.  **Working Reagent (WR):** Mix Reagent A and Reagent B in a 25:24 ratio, then add 1 part Reagent C.
-4.  **Loading:** Aliquot 25 µL of sample (diluted if necessary) and 100 µL of WR into a 96-well plate.
-5.  **Incubation:** Incubate at 37°C for 30 minutes.
+4.  **Loading:** Aliquot 50 µL of sample (diluted if necessary) and 150 µL of WR into a 96-well plate.
+5.  **Incubation:** Incubate at 37°C for 120 minutes.
 6.  **Measurement:** Read absorbance at **562 nm**.
 
 ---
