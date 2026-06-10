@@ -76,7 +76,7 @@ Apply these simple formulas in Row 2 and copy/drag them down to Row 16:
 ## 4. Quantitative Expression Visual and Legend
 
 The relative fold-change results were plotted using a balanced Excel Combo Chart design.
-<img width="2790" height="1541" alt="qPCR_Excel_Fold_Change_Output" src="https://github.com/user-attachments/assets/5524d893-bada-4298-9edb-24eb7fe52d37" />
+<img width="2790" alt="qPCR_Excel_Fold_Change_Output" src="https://github.com/user-attachments/assets/5524d893-bada-4298-9edb-24eb7fe52d37" />
 
 
 ### Chart Title: Relative Gene Expression Profile Following Inhibitor Treatment
