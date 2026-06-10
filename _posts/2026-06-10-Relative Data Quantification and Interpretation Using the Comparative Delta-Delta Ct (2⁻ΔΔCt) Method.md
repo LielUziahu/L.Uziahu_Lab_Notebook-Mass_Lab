@@ -77,7 +77,7 @@ Apply these exact formulas in Row 2 (the Tubulin reference line) and drag them d
 
 The relative fold-change results are visualized using a professional **Combo Chart** in Excel, combining column bars for individual gene fold changes with a dashed horizontal baseline to distinguish expression trends.
 
-<img src="images/qPCR_Excel_Fold_Change_Output.tiff" alt="qPCR Gene Expression Fold Change" width="100%">
+<img src="images/qPCR_Excel_Fold_Change_Output.tif" alt="qPCR Gene Expression Fold Change" width="100%">
 
 ### Chart Title: Relative Gene Expression Profile Following Inhibitor Treatment
 **Figure 1:** Relative expression fold changes ($2^{-\Delta\Delta C_T}$) of 14 key developmental marker transcripts in marine larval tissue following experimental inhibitor exposure. The horizontal red dashed line marks the Control Baseline threshold ($\text{DMSO} = 1.0$). Bars extending above the threshold represent target transcript induction, while columns dropping below the line signify significant transcript suppression. All data values are normalized internally against the static Tubulin housekeeping baseline.
