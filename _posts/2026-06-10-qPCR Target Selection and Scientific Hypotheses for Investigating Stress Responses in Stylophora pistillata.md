@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "qPCR Target Selection and Scientific Hypotheses for Investigating *amFP486* Fluorescent Regulation in *Stylophora pistillata*"
-date: 2026-05-12
+date: 2026-06-10
 ---
 
 **
