@@ -11,7 +11,7 @@ date: 2026-06-10
 ## Experimental Framework & Abiotic Stress Treatment
 * **Target Organism:** *Stylophora pistillata* (Smooth Cauliflower Coral) host tissue.
 * **Experimental Manipulation:** Synergy of Elevated Thermal Stress and Hyper-Irradiance (Simulated Marine Heatwave under Shallow Reef Conditions).
-* **Experimental Setup:** Replicated coral host micro-fragments ($n = 6$ per group) from the Gulf of Eilat are acclimated in flow-through aquaria. The control group is held at an ambient baseline temperature of **25°C** under control light ($150\ \mu mol\ photons\ m^{-2}\ s^{-1}$). The stress-treatment group is subjected to a temperature ramp up to **32°C** combined with high actinic irradiance ($700\ \mu mol\ photons\ m^{-2}\ s^{-1}$) over 24 hours, followed by a sustained 6-hour shock exposure. This setup is designed to evaluate the transcriptional modulation of host photoprotective fluorescent arrays immediately preceding visible coral bleaching.
+* **Experimental Setup:** Replicated coral host micro-fragments (*n* = 6 per group) from the Gulf of Eilat are acclimated in flow-through aquaria. The control group is held at an ambient baseline temperature of **25°C** under control light (150 µmol photons m⁻² s⁻¹). The stress-treatment group is subjected to a temperature ramp up to **32°C** combined with high actinic irradiance (700 µmol photons m⁻² s⁻¹) over 24 hours, followed by a sustained 6-hour shock exposure. This setup is designed to evaluate the transcriptional modulation of host photoprotective fluorescent arrays immediately preceding visible coral bleaching.
 
 ---
 
@@ -42,7 +42,7 @@ date: 2026-06-10
 
 ### Summary of Hypothesized qPCR Outcomes
 
-| Gene Target | Functional Category | Expected Response (25°C $\rightarrow$ 32°C + High Light) | Primary Cellular Rationale |
+| Gene Target | Functional Category | Expected Response (25°C → 32°C + High Light) | Primary Cellular Rationale |
 | :--- | :--- | :--- | :--- |
 | **`spEF1α`** | Housekeeping Reference | **Stable Baseline** (No Change) | Foundational protein translation remains constant across all metabolic states. |
 | **`amFP486`**| Host Photoprotection | **Significant Downregulation** | Metabolic energy is shifted away from pigment screening to prioritize cell survival. |
