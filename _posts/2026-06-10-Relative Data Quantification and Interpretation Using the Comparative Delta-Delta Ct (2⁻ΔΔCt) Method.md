@@ -75,9 +75,9 @@ Apply these simple formulas in Row 2 and copy/drag them down to Row 16:
 
 ## 4. Quantitative Expression Visual and Legend
 
-The relative fold-change results were plotted using a balanced Excel Combo Chart design and exported into your local directory.
+The relative fold-change results were plotted using a balanced Excel Combo Chart design.
+<img width="2790" height="1541" alt="qPCR_Excel_Fold_Change_Output" src="https://github.com/user-attachments/assets/5524d893-bada-4298-9edb-24eb7fe52d37" />
 
-<img src="images/qPCR_Excel_Fold_Change_Output.jpg" alt="qPCR Gene Expression Fold Change" width="100%">
 
 ### Chart Title: Relative Gene Expression Profile Following Inhibitor Treatment
 **Figure 1:** Relative expression fold changes (2^-ΔΔCt) of 14 key developmental marker transcripts in marine larval tissue following experimental inhibitor exposure. The horizontal red line marks the Control Baseline threshold (DMSO Control = 1.0). Bars extending above the threshold represent target transcript induction, while columns dropping below the line signify significant transcript suppression. All data values are normalized internally against the static Tubulin housekeeping baseline.
