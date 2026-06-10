@@ -6,7 +6,7 @@ date: 2026-06-10
 
 **
 
-# Technical Post: qPCR Target Selection and Scientific Hypotheses for Investigating *amFP486* Fluorescent Regulation in *Stylophora pistillata*
+
 
 ## Experimental Framework & Abiotic Stress Treatment
 * **Target Organism:** *Stylophora pistillata* (Smooth Cauliflower Coral) host tissue.
