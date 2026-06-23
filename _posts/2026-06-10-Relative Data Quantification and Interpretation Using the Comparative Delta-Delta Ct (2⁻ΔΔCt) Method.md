@@ -101,6 +101,3 @@ When evaluating a relative gene quantification chart derived via the 2^-ΔΔCt p
 * **Analytical Interpretation:** These genes cluster tightly around the reference threshold line. This stable baseline demonstrates that while neural and skeletal developmental pathways are significantly altered, these specific downstream targets remain unaffected. This distinction proves that the tested inhibitor operates through a selective mechanism of action rather than causing a general, non-specific shutdown of host transcription.
 
 ---
-**Repository Architect:** Dar Golomb  
-**Data Standards Compliance:** Comparative Livak Quant-Real-Time Protocol  
-**Operational Academic Year:** 2026
