@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Relative Data Quantification and Interpretation Using the Comparative Delta-Delta Ct (2⁻ΔΔCt) Method"
+title: "Interactive Morphometric Profiling Pipeline for Scleractinian Larvae (Stylophora pistillata)"
 date: 2026-06-10
 ---
 
